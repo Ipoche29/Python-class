@@ -1,0 +1,19 @@
+class persona:
+    def _init_(self, codigo, nombre, direccion, nacimiento):
+        self.codigo = codigo
+        self.nombre = nombre
+        self.direccion = direccion
+        self.nacimiento = nacimiento
+
+
+    def _str_(self):
+        return 'nombre: {}\ncodigo: {}\ndireccion: {}\nnacimiento: {}\ndireccion{}'.format(self.nombre, self.codigo, self.nacimiento, self.direccion)
+)
+
+
+
+
+edward = persona ('5' 'edward', '33', 'santo domingo' '25/05/1995'):
+
+print("cuenta inactiva")
+
