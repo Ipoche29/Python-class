@@ -1,0 +1,32 @@
+"Crear un Sistema que solicite el monto, cantidad de cuotas o (plazo) en meses, porcentaje de interes anual de un préstamo. Calcule la cuota mensual y muestre la tabla amortizada de los meses."
+
+
+def tabla_amortizada():
+  class informacion():
+    cantidad_dinero=float(input("Que cantidad va tomar\n ➔ "))
+    Plazos_Pagar=(int(input("Cuantos plazos ultilizara para el pago "+str(cantidad_dinero)+"\n ➔ ")))
+    interes_a_pagar=(float(input("Que cantidad de interes va pagar\n ➔ ")))
+    
+   
+    interes=interes_a_pagar*0.01
+
+    plazos_pagar_almacenada=cantidad_dinero*(((1+interes_a_pagar)** Plazos_Pagar)*interes_a_pagar)
+
+    plazos_pagar_almacenada=plazos_pagar_almacenada/(((1+interes_a_pagar)** Plazos_Pagar)-1)
+
+    monto=cantidad_dinero
+    
+    cuota_almacenada="{0:.2F}".format(plazos_pagar_almacenada)
+    print("\n                          卍 Tabla Amortizada 卍\n")
+    print("\nCantidad de Periodo:0║Plazos:0║Interes:0║Abono:0║Cantidad de dinero prestado:{0}\n".format(monto))
+
+    for x in range (1, Plazos_Pagar + 1):
+      interes_operable="{0:.2F}".format(float(monto)*float(interes_a_pagar))
+
+      pagado="{0:.2f}".format(float(cuota_almacenada)-float(interes_operable))
+
+      monto="{0:.2f}".format(float(monto)-float(pagado))
+      if(float(monto)<0):
+        saldo=" Has Completado El Prestamo"
+      print("Cantidad de Periodo:{0}║Plazos:{1}║Interes:{2}║Abono:{3}║Cantidad de dinero prestado:{4}\n".format(x,cuota_almacenada,interes_operable,pagado,monto))
+tabla_amortizada()
